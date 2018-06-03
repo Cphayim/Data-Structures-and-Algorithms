@@ -1,4 +1,4 @@
-package com.cpahyim.test;
+package com.cphayim.test;
 
 import com.cphayim.ds.Array;
 
