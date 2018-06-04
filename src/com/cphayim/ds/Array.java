@@ -112,6 +112,24 @@ public class Array<E> {
         return data[index];
     }
 
+    /**
+     * 获取数组中第一个元素
+     *
+     * @return
+     */
+    public E getFirst() {
+        return get(0);
+    }
+
+    /**
+     * 获取数组中最后一个元素
+     *
+     * @return
+     */
+    public E getLast() {
+        return get(size - 1);
+    }
+
 
     /**
      * 设置数组中 index 位置的元素
@@ -216,6 +234,7 @@ public class Array<E> {
 
     @Override
     public String toString() {
+
         StringBuilder res = new StringBuilder();
         res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
         res.append("[");
