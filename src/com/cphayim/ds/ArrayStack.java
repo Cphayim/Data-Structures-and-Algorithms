@@ -20,6 +20,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 获取当前栈的大小
+     * 时间复杂度：O(1)
      *
      * @return
      */
@@ -30,6 +31,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 判断当前栈是否为空
+     * 时间复杂度：O(1)
      *
      * @return
      */
@@ -40,6 +42,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 获取当前栈的容积
+     * 时间复杂度：O(1)
      *
      * @return
      */
@@ -49,6 +52,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 元素入栈
+     * 时间复杂度：O(1) 均摊
      *
      * @param e
      */
@@ -59,6 +63,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 元素出栈，并返回
+     * 时间复杂度：O(1) 均摊
      *
      * @return
      */
@@ -69,6 +74,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     /**
      * 返回当前栈顶的元素
+     * 时间复杂度：O(1)
      *
      * @return
      */
@@ -86,7 +92,7 @@ public class ArrayStack<E> implements Stack<E> {
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
             // 如果不是最后一个元素，补一个逗号
-            if (i != array.getSize() - 1){
+            if (i != array.getSize() - 1) {
                 res.append(", ");
             }
         }

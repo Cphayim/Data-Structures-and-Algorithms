@@ -28,7 +28,7 @@ public class Array<E> {
 
     /**
      * 获取数组中的元素个数
-     *
+     * 时间复杂度：O(1)
      * @return
      */
     public int getSize() {
@@ -37,7 +37,7 @@ public class Array<E> {
 
     /**
      * 获取数组的容量
-     *
+     * 时间复杂度：O(1)
      * @return
      */
     public int getCapacity() {
@@ -46,7 +46,7 @@ public class Array<E> {
 
     /**
      * 返回数组是否为空
-     *
+     * 时间复杂度：O(1)
      * @return
      */
     public boolean isEmpty() {
@@ -55,7 +55,7 @@ public class Array<E> {
 
     /**
      * 向数组末尾添加一个元素 e
-     *
+     * 时间复杂度：O(1) 均摊
      * @param e
      */
     public void addLast(E e) {
@@ -64,7 +64,7 @@ public class Array<E> {
 
     /**
      * 向数组开头添加一个元素 e
-     *
+     * 时间复杂度：O(n)
      * @param e
      */
     public void addFirst(E e) {
@@ -74,7 +74,7 @@ public class Array<E> {
     /**
      * 在数组索引为 index 的位置插入元素 e
      * 前置：当数组的 size 等于 capacity 时，将数组扩容1倍
-     *
+     * 时间复杂度：O(n)
      * @param index
      * @param e
      */
@@ -99,7 +99,7 @@ public class Array<E> {
 
     /**
      * 获取数组中 index 位置的元素
-     *
+     * 时间复杂度：O(1)
      * @param index
      *
      * @return
@@ -114,7 +114,7 @@ public class Array<E> {
 
     /**
      * 获取数组中第一个元素
-     *
+     * 时间复杂度：O(1)
      * @return
      */
     public E getFirst() {
@@ -123,7 +123,7 @@ public class Array<E> {
 
     /**
      * 获取数组中最后一个元素
-     *
+     * 时间复杂度：O(1)
      * @return
      */
     public E getLast() {
@@ -133,7 +133,7 @@ public class Array<E> {
 
     /**
      * 设置数组中 index 位置的元素
-     *
+     * 时间复杂度：O(1)
      * @param index
      * @param e
      */
@@ -148,7 +148,7 @@ public class Array<E> {
 
     /**
      * 查找数组中是否有元素 e
-     *
+     * 时间复杂度：O(n)
      * @param e
      *
      * @return
@@ -159,7 +159,7 @@ public class Array<E> {
 
     /**
      * 查找数组中元素 e 的索引，如果不存在元素 e，则返回 -1
-     *
+     * 时间复杂度：O(n)
      * @param e
      *
      * @return
@@ -176,7 +176,7 @@ public class Array<E> {
     /**
      * 删除数组中指定索引的元素，返回删除的元素
      * 后置：当数组的 size 是 capacity 的 1/4 时，缩容为 1/2
-     *
+     * 时间复杂度：O(n)
      * @param index
      */
     public E remove(int index) {
@@ -202,7 +202,7 @@ public class Array<E> {
 
     /**
      * 删除数组中的第一个元素，并返回删除的元素
-     *
+     * 时间复杂度：O(n)
      * @return
      */
     public E removeFirst() {
@@ -211,7 +211,7 @@ public class Array<E> {
 
     /**
      * 删除数组中的最后一个元素，并返回删除的元素
-     *
+     * 时间复杂度：O(1) 均摊
      * @return
      */
     public E removeLast() {
@@ -220,7 +220,7 @@ public class Array<E> {
 
     /**
      * 从数组中删除元素 e
-     *
+     * 时间复杂度：O(n)
      * @param e
      */
     public boolean removeElement(E e) {
@@ -251,7 +251,7 @@ public class Array<E> {
 
     /**
      * 数组容量伸缩
-     *
+     * 时间复杂度：O(n)
      * @param newCapacity
      */
     private void resize(int newCapacity) {
