@@ -45,6 +45,7 @@ public class LinkedList<E> {
 
     /**
      * 获取链表中的元素个数
+     * 时间复杂度：O(1)
      * @return
      */
     public int getSize() {
@@ -53,6 +54,7 @@ public class LinkedList<E> {
 
     /**
      * 判断链表是否为0
+     * 时间复杂度：O(1)
      * @return
      */
     public boolean isEmpty() {
@@ -63,6 +65,7 @@ public class LinkedList<E> {
      * 在链表的 index(0-based) 位置添加新的元素 e
      * 在链表中不是一个常用的操作，练习用：）
      * 关键：找到要添加的节点的前一个节点
+     * 时间复杂度：O(n)
      */
     public void add(int index, E e) {
 
@@ -84,6 +87,7 @@ public class LinkedList<E> {
 
     /**
      * 向链表头添加元素
+     * 时间复杂度：O(1)
      * @param e
      */
     public void addFirst(E e) {
@@ -92,6 +96,7 @@ public class LinkedList<E> {
 
     /**
      * 向链表尾部添加一个元素
+     * 时间复杂度：O(n)
      * @param e
      */
     public void addLast(E e) {
@@ -101,6 +106,7 @@ public class LinkedList<E> {
     /**
      * 获取链表的 index(0-based) 位置的元素
      * 在链表中不是一个常用的操作，练习用：）
+     * 时间复杂度：O(n)
      * @param index
      * @return
      */
@@ -121,6 +127,7 @@ public class LinkedList<E> {
 
     /**
      * 获取链表的第一个元素
+     * 时间复杂度：O(1)
      * @return
      */
     public E getFirst() {
@@ -129,6 +136,7 @@ public class LinkedList<E> {
 
     /**
      * 获取链表的最后一个元素
+     * 时间复杂度：O(n)
      * @return
      */
     public E getLast() {
@@ -138,6 +146,7 @@ public class LinkedList<E> {
     /**
      * 设置链表的 index(0-based) 位置的元素
      * 在链表中不是一个常用的操作，练习用：）
+     * 时间复杂度：O(n)
      * @param index
      * @param e
      * @return
@@ -158,6 +167,7 @@ public class LinkedList<E> {
 
     /**
      * 查找链表中是否有元素 e
+     * 时间复杂度：O(n)
      * @param e
      * @return
      */
@@ -175,8 +185,51 @@ public class LinkedList<E> {
         return false;
     }
 
+    /**
+     * 删除链表的 index(0-based) 位置的元素
+     * 在链表中不是一个常用的操作，练习用：）
+     * 时间复杂度：O(n)
+     * @param index
+     * @return
+     */
+    public E remove(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Remove failed. Illegal index.");
+
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+
+        Node delNode = prev.next;
+        prev.next = delNode.next;
+        delNode.next = null;
+        size--;
+
+        return delNode.e;
+    }
+
+    /**
+     * 删除链表的第一个元素
+     * 时间复杂度：O(1)
+     * @return
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * 删除链表的最后一个元素
+     * 时间复杂度：O(n)
+     * @return
+     */
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
+
         StringBuilder res = new StringBuilder();
 
 //        Node cur = dummyHead.next;
