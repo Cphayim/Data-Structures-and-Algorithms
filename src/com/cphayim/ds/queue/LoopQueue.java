@@ -1,4 +1,4 @@
-package com.cphayim.ds;
+package com.cphayim.ds.queue;
 
 import com.cphayim.ds.interfaces.Queue;
 

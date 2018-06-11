@@ -1,4 +1,4 @@
-package com.cphayim.ds;
+package com.cphayim.ds.linked_list;
 
 /**
  * @author Cphayim

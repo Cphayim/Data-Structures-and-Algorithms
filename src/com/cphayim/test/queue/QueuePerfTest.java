@@ -1,7 +1,7 @@
-package com.cphayim.test;
+package com.cphayim.test.queue;
 
-import com.cphayim.ds.ArrayQueue;
-import com.cphayim.ds.LoopQueue;
+import com.cphayim.ds.queue.ArrayQueue;
+import com.cphayim.ds.queue.LoopQueue;
 import com.cphayim.ds.interfaces.Queue;
 
 import java.util.Random;

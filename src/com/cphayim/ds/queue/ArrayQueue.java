@@ -1,27 +1,27 @@
-package com.cphayim.ds;
+package com.cphayim.ds.queue;
 
-import com.cphayim.ds.interfaces.Stack;
+import com.cphayim.ds.array.Array;
+import com.cphayim.ds.interfaces.Queue;
 
 /**
  * @author Cphayim
- * @date Created in 2018/6/4 13:24
+ * @date Created in 2018/6/6 23:10
  */
-public class ArrayStack<E> implements Stack<E> {
+public class ArrayQueue<E> implements Queue<E> {
 
     private Array<E> array;
 
-    public ArrayStack(int capacity) {
+    public ArrayQueue(int capacity) {
         array = new Array<>(capacity);
     }
 
-    public ArrayStack() {
+    public ArrayQueue() {
         array = new Array<>();
     }
 
     /**
-     * 获取当前栈的大小
+     * 获取当前队列的长度
      * 时间复杂度：O(1)
-     *
      * @return
      */
     @Override
@@ -30,9 +30,8 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     /**
-     * 判断当前栈是否为空
+     * 判断当前队列是否为空
      * 时间复杂度：O(1)
-     *
      * @return
      */
     @Override
@@ -41,9 +40,8 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     /**
-     * 获取当前栈的容积
+     * 获取当前队列的容量
      * 时间复杂度：O(1)
-     *
      * @return
      */
     public int getCapacity() {
@@ -51,44 +49,41 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     /**
-     * 元素入栈
+     * 元素入队
      * 时间复杂度：O(1) 均摊
-     *
      * @param e
      */
     @Override
-    public void push(E e) {
+    public void enqueue(E e) {
         array.addLast(e);
     }
 
     /**
-     * 元素出栈，并返回
-     * 时间复杂度：O(1) 均摊
-     *
+     * 元素出队
+     * 时间复杂度：O(n)
      * @return
      */
     @Override
-    public E pop() {
-        return array.removeLast();
+    public E dequeue() {
+        return array.removeFirst();
     }
 
     /**
-     * 返回当前栈顶的元素
+     * 获取队首元素
      * 时间复杂度：O(1)
-     *
      * @return
      */
     @Override
-    public E peek() {
-        return array.getLast();
+    public E getFront() {
+        return array.getFirst();
     }
+
 
     @Override
     public String toString() {
-
         StringBuilder res = new StringBuilder();
-        res.append("Stack: ");
-        res.append("[");
+        res.append(String.format("Queue: size = %d , capacity = %d\n", getSize(), getCapacity()));
+        res.append("front [");
         for (int i = 0; i < array.getSize(); i++) {
             res.append(array.get(i));
             // 如果不是最后一个元素，补一个逗号
@@ -96,7 +91,7 @@ public class ArrayStack<E> implements Stack<E> {
                 res.append(", ");
             }
         }
-        res.append("] top");
+        res.append("] tail  ");
         return res.toString();
     }
 }

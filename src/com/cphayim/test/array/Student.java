@@ -1,4 +1,4 @@
-package com.cphayim.test;
+package com.cphayim.test.array;
 
 /**
  * @author Cphayim

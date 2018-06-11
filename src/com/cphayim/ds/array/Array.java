@@ -1,4 +1,4 @@
-package com.cphayim.ds;
+package com.cphayim.ds.array;
 
 /**
  * @author Cphayim
@@ -10,7 +10,7 @@ public class Array<E> {
     private int size;
 
     /**
-     * 构造函数，传入数组的容量 capacity 构造 Array
+     * 构造函数，传入数组的容量 capacity 构造 array
      *
      * @param capacity
      */
@@ -236,7 +236,7 @@ public class Array<E> {
     public String toString() {
 
         StringBuilder res = new StringBuilder();
-        res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
+        res.append(String.format("array: size = %d , capacity = %d\n", size, data.length));
         res.append("[");
         for (int i = 0; i < size; i++) {
             res.append(data[i]);

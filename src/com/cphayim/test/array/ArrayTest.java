@@ -1,6 +1,6 @@
-package com.cphayim.test;
+package com.cphayim.test.array;
 
-import com.cphayim.ds.Array;
+import com.cphayim.ds.array.Array;
 
 /**
  * @author Cphayim

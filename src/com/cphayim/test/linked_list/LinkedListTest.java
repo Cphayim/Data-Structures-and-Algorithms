@@ -1,6 +1,6 @@
-package com.cphayim.test;
+package com.cphayim.test.linked_list;
 
-import com.cphayim.ds.LinkedList;
+import com.cphayim.ds.linked_list.LinkedList;
 
 /**
  * @author Cphayim

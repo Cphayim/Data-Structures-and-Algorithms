@@ -1,16 +1,16 @@
-package com.cphayim.test;
+package com.cphayim.test.queue;
 
-import com.cphayim.ds.LoopQueue;
+import com.cphayim.ds.queue.ArrayQueue;
 
 /**
  * @author Cphayim
- * @date Created in 2018/6/7 00:35
+ * @date Created in 2018/6/6 23:23
  */
-public class LoopQueueTest {
+public class ArrayQueueTest {
     public static void main(String[] args) {
-        LoopQueue<Integer> quque = new LoopQueue<>();
+        ArrayQueue<Integer> quque = new ArrayQueue<>();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             // 入队
             quque.enqueue(i);
             System.out.println(quque);
