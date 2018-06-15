@@ -88,26 +88,50 @@ public class RemoveLinkedListElements {
 //    }
 
     // 使用虚拟头节点的解法
+//    public ListNode removeElements(ListNode head, int val) {
+//
+//        // 创建虚拟头节点
+//        ListNode dummyHead = new ListNode(-1);
+//        dummyHead.next = head;
+//
+//        // 由于虚拟头节点的存在，链表上每一个节点都有前一个节点，因此可以直接遍历整个链表
+//        ListNode prev = dummyHead;
+//        while (prev.next != null) {
+//            if (prev.next.val == val) {
+//                ListNode delNode = prev.next;
+//                prev.next = delNode.next;
+//                delNode = null;
+//            } else {
+//                prev = prev.next;
+//            }
+//        }
+//
+//        // 此时 head 的引用可能是一个被删除的节点，因此返回 dummyHead.next
+//        return dummyHead.next;
+//    }
+
+    // 使用递归的解法
     public ListNode removeElements(ListNode head, int val) {
 
-        // 创建虚拟头节点
-        ListNode dummyHead = new ListNode(-1);
-        dummyHead.next = head;
-
-        // 由于虚拟头节点的存在，链表上每一个节点都有前一个节点，因此可以直接遍历整个链表
-        ListNode prev = dummyHead;
-        while (prev.next != null) {
-            if (prev.next.val == val) {
-                ListNode delNode = prev.next;
-                prev.next = delNode.next;
-                delNode = null;
-            } else {
-                prev = prev.next;
-            }
+        // 如果当前节点为空直接返回 null
+        if (head == null) {
+            return null;
         }
 
-        // 此时 head 的引用可能是一个被删除的节点，因此返回 dummyHead.next
-        return dummyHead.next;
+        // 将当前节点的 next 节点作为头节点传递给 removeElements
+//        ListNode res = removeElements(head.next, val);
+//        // 判断当前节点是否是待删除节点
+//        if (head.val == val) {
+//            // 返回 head 后面完成该逻辑返回的节点
+//            return res;
+//        } else {
+//            // 将 head.next 指向后面完成该逻辑返回的节点，并返回 head
+//            head.next = res;
+//            return head;
+//        }
+
+        head.next = removeElements(head.next, val);
+        return head.val == val ? head.next : head;
     }
 
     public static void main(String[] args) {
