@@ -4,27 +4,67 @@ import java.lang.reflect.Method;
 
 public class SortTestHelper {
 
-    private SortTestHelper() {
-    }
+    private SortTestHelper() {}
 
-    // 生成有 n 个元素的随机整型数组，每个元素的随机范围为 [rangeL, rangeR]
+    /**
+     * 生成随机数组
+     * 用于生成有 n 个元素的随机整型数组
+     * 每个元素的随机范围区间为 [rangeL, rangeR]
+     *
+     * @param n
+     * @param rangeL
+     * @param rangeR
+     * @return
+     */
     public static Integer[] generateRandomArray(int n, int rangeL, int rangeR) {
 
-        if (!(rangeL <= rangeR)) {
+        if (rangeL > rangeR)
             throw new IllegalArgumentException("rangeL must be less then or equal to rangeR");
-        }
 
         Integer[] arr = new Integer[n];
 
         for (int i = 0; i < n; i++) {
             int r = (int) (Math.random() * (rangeR - rangeL + 1) + rangeL);
-            arr[i] = new Integer(r);
+            arr[i] = r;
         }
 
         return arr;
     }
 
-    // 打印 arr 数组的所有内容
+    /**
+     * 生成近乎有序的数组
+     * 用于生成一个长度 n 的近乎有序的整型数组
+     * swapTimes 定义数据的无序程度
+     * 当 swapTimes == 0, 数组完全有序,
+     * swapTimes 越大，数组越趋向于无序
+     *
+     * @param n
+     * @param swapTimes
+     * @return
+     */
+    public static Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
+
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = new Integer(i);
+
+        // 随机打乱 swapTimes 次位置
+        for (int i = 0; i < swapTimes; i++) {
+            int a = (int) (Math.random() * n);
+            int b = (int) (Math.random() * n);
+            Integer t = arr[a];
+            arr[a] = arr[b];
+            arr[b] = t;
+        }
+
+        return arr;
+    }
+
+    /**
+     * 打印数组元素
+     *
+     * @param arr
+     */
     public static void printArray(Object[] arr) {
 
         for (int i = 0; i < arr.length; i++) {
@@ -33,7 +73,12 @@ public class SortTestHelper {
         System.out.println();
     }
 
-    // 判断 arr 数组是否有序
+    /**
+     * 判断数组是否有序
+     *
+     * @param arr
+     * @return
+     */
     public static boolean isSorted(Comparable[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++)
@@ -43,7 +88,13 @@ public class SortTestHelper {
         return true;
     }
 
-    // 测试 sortClassName 所对应的排序算法排序 arr 数组所得到结果的正确性和算法运行时间
+    /**
+     * 测试排序
+     * 执行某种排序算法的测试，传入排序算法类的完整名称（含包名）和测试用数组
+     *
+     * @param sortClassName
+     * @param arr
+     */
     public static void testSort(String sortClassName, Comparable[] arr) {
 
         // Java 反射机制，通过排序的类名，运行排序方法
@@ -61,9 +112,8 @@ public class SortTestHelper {
             long endTime = System.currentTimeMillis();
 
             // 判断是否成功排序
-            if (!isSorted(arr)) {
+            if (!isSorted(arr))
                 throw new Exception(sortClass.getSimpleName() + " 排序失败");
-            }
 
             System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + "ms");
 
