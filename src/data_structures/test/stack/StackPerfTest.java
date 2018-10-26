@@ -51,5 +51,7 @@ public class StackPerfTest {
 
         double time2 = testStack(linkedListStack, opCount);
         System.out.println("LinkedListStack, time: "+ time2 + "s");
+
+        // 其实这个时间比较很复杂，因为 LinkedListStack 中包含更多的 new 操作
     }
 }
