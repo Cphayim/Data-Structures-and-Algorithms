@@ -12,16 +12,21 @@ public class SortTest {
         Class[] sortClassArray = {
                 BubbleSort.class,
                 SelectionSort.class,
-                InsertionSort.class
+                InsertionSort.class,
+                ShellSort.class,
         };
         start(sortClassArray);
     }
 
     public static void start(Class[] sortClassArray) {
 
+        System.out.println("=======================================");
         standardTest(sortClassArray);
+        System.out.println("=======================================");
         highRepetitionTest(sortClassArray);
+        System.out.println("=======================================");
         nearlyOrderedTest(sortClassArray);
+        System.out.println("=======================================");
     }
 
     /**
