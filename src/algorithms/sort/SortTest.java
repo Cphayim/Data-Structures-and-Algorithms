@@ -14,6 +14,7 @@ public class SortTest {
                 SelectionSort.class,
                 InsertionSort.class,
                 ShellSort.class,
+                MergeSort.class,
         };
         start(sortClassArray);
     }
@@ -67,7 +68,7 @@ public class SortTest {
     public static void nearlyOrderedTest(Class[] sortClassArray) {
 
         System.out.println("近乎有序数组的测试：");
-        Integer[] originalArr = SortTestHelper.generateNearlyOrderedArray(N, 100);
+        Integer[] originalArr = SortTestHelper.generateNearlyOrderedArray(N, 1000);
         for (Class sortClass : sortClassArray) {
             Integer[] newArr = Arrays.copyOf(originalArr, originalArr.length);
             SortTestHelper.testSort(sortClass.getName(), newArr);
