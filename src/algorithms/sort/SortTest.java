@@ -53,7 +53,7 @@ public class SortTest {
     public static void highRepetitionTest(Class[] sortClassArray) {
 
         System.out.println("高重复数组的排序测试：");
-        Integer[] originalArr = SortTestHelper.generateRandomArray(N, 0, 1);
+        Integer[] originalArr = SortTestHelper.generateRandomArray(N, 0, 5);
         for (Class sortClass : sortClassArray) {
             Integer[] newArr = Arrays.copyOf(originalArr, originalArr.length);
             SortTestHelper.testSort(sortClass.getName(), newArr);
@@ -68,7 +68,7 @@ public class SortTest {
     public static void nearlyOrderedTest(Class[] sortClassArray) {
 
         System.out.println("近乎有序数组的测试：");
-        Integer[] originalArr = SortTestHelper.generateNearlyOrderedArray(N, 1000);
+        Integer[] originalArr = SortTestHelper.generateNearlyOrderedArray(N, 10);
         for (Class sortClass : sortClassArray) {
             Integer[] newArr = Arrays.copyOf(originalArr, originalArr.length);
             SortTestHelper.testSort(sortClass.getName(), newArr);

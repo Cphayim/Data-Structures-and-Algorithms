@@ -23,14 +23,32 @@ public class MergeSort {
      */
     private static void sort(Comparable[] arr, int l, int r) {
 
-        if (l >= r) return;
+        // ①
+        // if (l >= r) return;
+
+        // ① 优化算法
+        // 当 [l, r] 区间很小时，通常意味着数组中有更多的元素是有序的
+        // 转而使用插入排序（最佳情况 O(n)）
+        if (r - l <= 15) {
+            InsertionSort.sort(arr, l, r);
+            return;
+        }
 
         int mid = (l + r) / 2;
 
+        // 分别对 arr[l...mid] 和 arr[mid+1...r] 进行排序
         sort(arr, l, mid);
         sort(arr, mid + 1, r);
 
-        merge(arr, l, mid, r);
+        // ②
+        // 对左右已排序数组进行归并
+        // merge(arr, l, mid, r);
+
+        // ② 优化算法
+        // 由于在上面的两次递归中对 arr[l...mid] 和 arr[mid+1...r] 进行了排序
+        // 当 arr[mid] <= arr[mid+1] 时，说明 arr[l...r] 已经有序
+        if (arr[mid].compareTo(arr[mid + 1]) > 0)
+            merge(arr, l, mid, r);
     }
 
     /**

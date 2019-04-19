@@ -29,6 +29,7 @@ public class InsertionSort {
         */
 
         // 优化算法，减少对数组元素的赋值操作
+        /*
         for (int i = 1; i < arr.length; i++) {
             Comparable e = arr[i];
             int j; // j 保存元素 e 应该插入的位置
@@ -37,7 +38,28 @@ public class InsertionSort {
             }
             arr[j] = e;
         }
+        */
 
+        sort(arr, 0, arr.length - 1);
+    }
+
+    /**
+     * 对 arr[l...r] 进行插入排序
+     *
+     * @param arr
+     * @param l
+     * @param r
+     */
+    public static void sort(Comparable[] arr, int l, int r) {
+
+        for (int i = l + 1; i <= r; i++) {
+            Comparable e = arr[i];
+            int j; // j 保存元素 e 应该插入的位置
+            for (j = i; j > l && e.compareTo(arr[j - 1]) < 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = e;
+        }
     }
 
     public static void swap(Object[] arr, int x, int y) {
